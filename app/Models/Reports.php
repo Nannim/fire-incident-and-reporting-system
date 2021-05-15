@@ -16,4 +16,8 @@ class Reports extends Model
         'time'
     ];
 
+    protected $hidden = [
+        'remember_token',
+    ];
+
 }

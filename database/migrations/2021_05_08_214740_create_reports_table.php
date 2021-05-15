@@ -19,6 +19,7 @@ class CreateReportsTable extends Migration
             $table->string('description');
             $table->string('location');
             $table->string('time');
+            $table->rememberToken()->unique();
             $table->timestamps();
         });
     }

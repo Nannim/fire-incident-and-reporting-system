@@ -26,7 +26,7 @@
                         <th class="px-4 py-2">Name</th>
                         <th class="px-4 py-2">Email</th>
                         <th class="px-4 py-2">Mobile</th>
-                        <th class="px-4 py-2">Response</th>
+                        <th class="px-4 py-2">Description</th>
                         <th class="px-4 py-2">Response Time</th>
                         <th class="px-4 py-2">Occupation</th>
                         <th class="px-4 py-2">Action</th>
@@ -39,7 +39,7 @@
                         <td class="border px-4 py-2">{{ $response->name }}</td>
                         <td class="border px-4 py-2">{{ $response->email}}</td>
                         <td class="border px-4 py-2">{{ $response->mobile}}</td>
-                        <td class="border px-4 py-2">{{ $response->responses }}</td>
+                        <td class="border px-4 py-2">{{ $response->description }}</td>
                         <td class="border px-4 py-2">{{ $response->responsetime}}</td>
                         <td class="border px-4 py-2">{{ $response->occupation}}</td>
                         <td class="border px-4 py-2">

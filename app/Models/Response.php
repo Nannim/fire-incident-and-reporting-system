@@ -13,7 +13,7 @@ class Response extends Model
         'name',
         'email',
         'mobile',
-        'response',
+        'description',
         'responsetime',
         'occupation'
     ];

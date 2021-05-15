@@ -8,6 +8,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Mail\WelcomeUser;
+use Illuminate\Support\Str;
 use Livewire\Livewire;
 
 /*
@@ -41,6 +42,12 @@ Route::get('/send-email', [MailController::class, 'sendEmail']);
 Route::get('/t', function () {
     event(new \App\Events\SendMessage());
     dd('Event Run Successfully.');
+});
+
+Route::get('randomString', function ($stringGen) {
+    $remember_token = Str::random(10);
+    return $remember_token;
+    redirect('livewire.create');
 });
 
 Route::get('event', function () {

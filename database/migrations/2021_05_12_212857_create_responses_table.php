@@ -18,9 +18,10 @@ class CreateResponsesTable extends Migration
             $table->string('name', 100);
             $table->string('email');
             $table->string('mobile');
-            $table->string('response', 100);
+            $table->string('description');
             $table->string('responsetime');
             $table->string('occupation');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
