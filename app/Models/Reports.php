@@ -12,12 +12,10 @@ class Reports extends Model
     protected $fillable = [
         'level',
         'description',
-        'location',
+        'autocomplete',
+        'latitude',
+        'longitude',
         'time'
-    ];
-
-    protected $hidden = [
-        'remember_token',
     ];
 
 }

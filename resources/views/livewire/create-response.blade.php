@@ -42,7 +42,7 @@
                                 class="block text-gray-700 text-sm font-bold mb-2">Description</label>
                             <input type="text"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="exampleFormControlInput4" placeholder="What will you do about it?" wire:model="description">
+                                id="exampleFormControlInput4" placeholder="Describe the incident" wire:model="description">
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
@@ -56,11 +56,11 @@
                         </div>
                         <div class="mb-4">
                             <label for="exampleFormControlInput6"
-                                class="block text-gray-700 text-sm font-bold mb-2">Occupation</label>
+                                class="block text-gray-700 text-sm font-bold mb-2">Agency</label>
                             <textarea
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 id="exampleFormControlInput6" wire:model="occupation"
-                                placeholder="What do you do for a living?"></textarea>
+                                placeholder="What agency are you from?"></textarea>
                             @error('occupation') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>

@@ -14,14 +14,14 @@ class CreateResponsesTable extends Migration
     public function up()
     {
         Schema::create('responses', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name', 100);
             $table->string('email');
             $table->string('mobile');
             $table->string('description');
             $table->string('responsetime');
             $table->string('occupation');
-            $table->rememberToken();
+            $table->foreignId('user_id')->nullable()->constrained('reports')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

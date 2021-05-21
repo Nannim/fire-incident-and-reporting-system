@@ -18,8 +18,8 @@ class Click extends Component
         $this->msg = "Button has been clicked.";
     }
 
-    // public function trackClickEvt($studentId)
-    // {
-    //     $this->msg = $studentId;
-    // }
+    public function trackClickEvt($user_id)
+    {
+        $this->msg = $user_id;
+    }
 }

@@ -22,13 +22,13 @@
             <table class="table-fixed w-full">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-4 py-2 w-20">No.</th>
+                        <th class="px-4 py-2 w-10">No.</th>
                         <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">Email</th>
+                        {{-- <th class="px-4 py-2 list-inline">Email</th> --}}
                         <th class="px-4 py-2">Mobile</th>
                         <th class="px-4 py-2">Description</th>
                         <th class="px-4 py-2">Response Time</th>
-                        <th class="px-4 py-2">Occupation</th>
+                        <th class="px-4 py-2">Agency</th>
                         <th class="px-4 py-2">Action</th>
                     </tr>
                 </thead>
@@ -37,7 +37,7 @@
                     <tr>
                         <td class="border px-4 py-2">{{ $response->id }}</td>
                         <td class="border px-4 py-2">{{ $response->name }}</td>
-                        <td class="border px-4 py-2">{{ $response->email}}</td>
+                        {{-- <td class="border px-4 py-2">{{ $response->email}}</td> --}}
                         <td class="border px-4 py-2">{{ $response->mobile}}</td>
                         <td class="border px-4 py-2">{{ $response->description }}</td>
                         <td class="border px-4 py-2">{{ $response->responsetime}}</td>

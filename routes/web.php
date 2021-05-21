@@ -7,6 +7,7 @@ use App\Http\Livewire\CrudResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\AutoAddressController;
 use App\Mail\WelcomeUser;
 use Illuminate\Support\Str;
 use Livewire\Livewire;
@@ -31,24 +32,31 @@ Route::get('/', function () {
     ]);
 });
 
+
+// display dashboard from funtion that returns dashboard view using keyword name and verified authentication middleware
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () { return view('Dashboard'); })->name('dashboard');
 
+// display reports from Crud livewire class and use verified authentication middleware
 Route::middleware(['auth:sanctum', 'verified'])->get('/reports', Crud::class)->name('reports');
 
+// display responses from CrudResponse livewire class and use verified authentication middleware
 Route::middleware(['auth:sanctum', 'verified'])->get('/response', CrudResponse::class)->name('response');
 
+// display auto-complete-address from AutoAddressController controller class and use verified authentication middleware
+Route::get('auto-complete-address', [AutoAddressController::class, 'googleAutoAddress']);
+
+// send email web routes definition using MailController class
 Route::get('/send-email', [MailController::class, 'sendEmail']);
+
+// search reports and report history for matchig reports
+Route::middleware(['auth:sanctum', 'verified'])->get('/livesearch', [ReportController::class, 'getReport']);
 
 Route::get('/t', function () {
     event(new \App\Events\SendMessage());
     dd('Event Run Successfully.');
 });
 
-Route::get('randomString', function ($stringGen) {
-    $remember_token = Str::random(10);
-    return $remember_token;
-    redirect('livewire.create');
-});
+Route::middleware(['auth:sanctum', 'verified'])->get('randomString', Crud::class);
 
 Route::get('event', function () {
     event(new SendMessage('Hey how are you?'));

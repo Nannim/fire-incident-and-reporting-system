@@ -7,13 +7,13 @@ use App\Models\Response;
 
 class Crud extends Component
 {
-    public $reports, $level, $description, $location, $time, $report_id;
+    public $reports, $level, $description, $autocomplete, $longitude, $latitude, $time, $email, $report_id;
     public $isModalOpen = 0;
 
     public function render()
     {
         $this->reports = Reports::all();
-        return view('livewire.crud');
+        return view('livewire.crud-report');
     }
 
     public function create()
@@ -35,8 +35,11 @@ class Crud extends Component
     private function resetCreateForm(){
         $this->level = '';
         $this->description = '';
-        $this->location = '';
+        $this->autocomplete = '';
+        $this->longitude = '';
+        $this->latitude = '';
         $this->time = '';
+        $this->email = '';
     }
 
     public function store()
@@ -44,15 +47,19 @@ class Crud extends Component
         $this->validate([
             'level' => 'required',
             'description' => 'required',
-            'location' => 'required',
-            'time' => 'required'
+            'autocomplete' => 'required',
+            'latitude' => 'required',
+            'longitude'=> 'required',
+            'time' => 'required',
         ]);
 
         Reports::updateOrCreate(['id' => $this->report_id], [
             'level' => $this->level,
             'description' => $this->description,
-            'location' => $this->location,
-            'time' => $this->time
+            'autocomplete' => $this->autocomplete,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+            'time' => $this->time,
         ]);
 
         session()->flash('message', $this->report_id ? 'Report updated.' : 'Report created.');
@@ -68,7 +75,9 @@ class Crud extends Component
         $this->id = $id;
         $this->level = $report->level;
         $this->description = $report->description;
-        $this->location = $report->location;
+        $this->autocomplete = $report->autocomplete;
+        $this->longitude = $report->longitude;
+        $this->latitude = $report->latitude;
         $this->time = $report->time;
 
         $this->openModalPopover();
@@ -85,7 +94,7 @@ class Crud extends Component
 
 class CrudResponse extends Component
 {
-    public $response, $name, $email, $mobile, $responsetime, $occupation, $response_id;
+    public $response, $name, $email, $mobile, $description, $responsetime, $occupation, $response_id;
     public $isModalOpen = 0;
 
     public function render()
@@ -114,7 +123,7 @@ class CrudResponse extends Component
         $this->name = '';
         $this->email = '';
         $this->mobile = '';
-        $this->response = '';
+        $this->description = '';
         $this->responsetime = '';
         $this->occupation = '';
     }
@@ -125,7 +134,7 @@ class CrudResponse extends Component
             'name' => 'required',
             'email' => 'required',
             'mobile' => 'required',
-            'response' => 'required',
+            'description' => 'required',
             'responsetime' => 'required',
             'occupation' => 'required',
         ]);
@@ -134,7 +143,7 @@ class CrudResponse extends Component
             'name' => $this->name,
             'email' => $this->email,
             'mobile' => $this->mobile,
-            'response' => $this->response,
+            'description' => $this->description,
             'responsetime' => $this->responsetime,
             'occupation' => $this->occupation,
         ]);
@@ -152,7 +161,7 @@ class CrudResponse extends Component
         $this->name = $response->name;
         $this->email = $response->email;
         $this->mobile = $response->mobile;
-        $this->response = $response->response;
+        $this->description = $response->description;
         $this->responsetime = $response->responsetime;
         $this->occupation = $response->occupation;
 
