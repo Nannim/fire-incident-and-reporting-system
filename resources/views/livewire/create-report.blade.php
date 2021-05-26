@@ -27,12 +27,12 @@
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="form-group mb-4">
-                            <label for="city-street"
-                            class="block text-gray-700 text-sm font-bold mb-2">City/Street</label>
-                            <input type="text"
+                            <label for="autocomplete"
+                            class="block text-gray-700 text-sm font-bold mb-2 card-body">Where?</label>
+                            <autocomplete-component type="text"
                             name="autocomplete" id="autocomplete"
                             class="pac-container form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            placeholder="What City and Country?">
+                            placeholder="What City and Country?"></autocomplete-component>
                         </div>
 
                         <div class="form-group mb-4" id="latitudeArea">

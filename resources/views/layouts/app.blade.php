@@ -21,6 +21,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
+
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -36,6 +37,11 @@
             @endif
 
             <!-- Page Content -->
+            <div id="app">
+                <main class="py-4">
+                    @yield('content')
+                </main>
+            </div>
             <main>
                 {{ $slot }}
             </main>

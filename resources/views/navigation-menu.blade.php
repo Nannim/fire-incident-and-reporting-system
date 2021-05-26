@@ -21,9 +21,10 @@
                     <x-jet-nav-link href="{{ route('response') }}" :active="request()->routeIs('response')">
                         {{ __('Responses') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link>
-                        <autocomplete-component></autocomplete-component>
+                    <x-jet-nav-link href="{{ route('auto-complete-city') }}" :active="request()->routeIs('auto-complete-city')">
+                        {{ __('Autocomplete') }}
                     </x-jet-nav-link>
+
                 </div>
             </div>
 

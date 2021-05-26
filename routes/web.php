@@ -42,8 +42,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/reports', Crud::class)->n
 // display responses from CrudResponse livewire class and use verified authentication middleware
 Route::middleware(['auth:sanctum', 'verified'])->get('/response', CrudResponse::class)->name('response');
 
-// display auto-complete-address from AutoAddressController controller class and use verified authentication middleware
-Route::get('auto-complete-address', [AutoAddressController::class, 'googleAutoAddress']);
+// auto-complete-google-address
+Route::get('auto-complete-city', [AutoAddressController::class, 'index']);
 
 // send email web routes definition using MailController class
 Route::get('/send-email', [MailController::class, 'sendEmail']);
@@ -51,15 +51,21 @@ Route::get('/send-email', [MailController::class, 'sendEmail']);
 // search reports and report history for matchig reports
 Route::middleware(['auth:sanctum', 'verified'])->get('/livesearch', [ReportController::class, 'getReport']);
 
-Route::get('/t', function () {
-    event(new \App\Events\SendMessage());
-    dd('Event Run Successfully.');
-});
+// // route for use of mood blade
+// Route::middleware(['auth:sanctum', 'verified'])->get('/mood', function(){
+//     return view('mood');
+// })->name('mood');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('randomString', Crud::class);
 
-Route::get('event', function () {
-    event(new SendMessage('Hey how are you?'));
-});
+// Route::get('/t', function () {
+//     event(new \App\Events\SendMessage());
+//     dd('Event Run Successfully.');
+// });
 
-Route::get('check-click-event', Click::class);
+// Route::middleware(['auth:sanctum', 'verified'])->get('randomString', Crud::class);
+
+// Route::get('event', function () {
+//     event(new SendMessage('Hey how are you?'));
+// });
+
+// Route::get('check-click-event', Click::class);
